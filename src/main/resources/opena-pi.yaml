@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /orderKoscs:
+    get:
+      summary: List all orderKoscs
+      operationId: listOrderKoscs
+      tags:
+        - orderKoscs
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of orderKoscs
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/OrderKoscs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a orderKosc
+      operationId: createOrderKoscs
+      tags:
+        - orderKoscs
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /orderKoscs/{orderKoscId}:
+    get:
+      summary: Info for a specific orderKosc
+      operationId: showOrderKoscById
+      tags:
+        - orderKoscs
+      parameters:
+        - name: orderKoscId
+          in: path
+          required: true
+          description: The id of the orderKosc to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/OrderKoscs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reasonKos:
+    get:
+      summary: List all reasonKos
+      operationId: listReasonKos
+      tags:
+        - reasonKos
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of reasonKos
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ReasonKos'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a reasonKo
+      operationId: createReasonKos
+      tags:
+        - reasonKos
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reasonKos/{reasonKoId}:
+    get:
+      summary: Info for a specific reasonKo
+      operationId: showReasonKoById
+      tags:
+        - reasonKos
+      parameters:
+        - name: reasonKoId
+          in: path
+          required: true
+          description: The id of the reasonKo to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ReasonKos'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /techniciens:
+    get:
+      summary: List all techniciens
+      operationId: listTechniciens
+      tags:
+        - techniciens
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of techniciens
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Techniciens'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a technicien
+      operationId: createTechniciens
+      tags:
+        - techniciens
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /techniciens/{technicienId}:
+    get:
+      summary: Info for a specific technicien
+      operationId: showTechnicienById
+      tags:
+        - techniciens
+      parameters:
+        - name: technicienId
+          in: path
+          required: true
+          description: The id of the technicien to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Techniciens'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  OrderKosc:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - dateRdv
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      dateRdv:
+        type: date
+  OrderKoscs:
+    type: array
+    items:
+      $ref: '#/definitions/OrderKosc'
+  ReasonKo:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - reasons
+      - description
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      reasons:
+        type: string
+      description:
+        type: string
+  ReasonKos:
+    type: array
+    items:
+      $ref: '#/definitions/ReasonKo'
+  Technicien:
+    type: "object"
+    required:
+      - id
+      - cin
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+    properties:
+      id:
+        type: int
+      cin:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+  Techniciens:
+    type: array
+    items:
+      $ref: '#/definitions/Technicien'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
