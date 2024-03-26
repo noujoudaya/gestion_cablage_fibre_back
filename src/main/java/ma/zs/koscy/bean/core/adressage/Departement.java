@@ -3,14 +3,14 @@ package ma.zs.koscy.bean.core.adressage;
 import jakarta.persistence.*;
 
 @Entity
-public class Ville {
+public class Departement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String code;
     private String nom;
     @ManyToOne
-    private Region region;
+    private Secteur secteur;
 
     public Long getId() {
         return id;
@@ -36,11 +36,13 @@ public class Ville {
         this.nom = nom;
     }
 
-    public Region getRegion() {
-        return region;
+    public Secteur getSecteur() {
+        return secteur;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setSecteur(Secteur secteur) {
+        this.secteur = secteur;
     }
 }
+
+
