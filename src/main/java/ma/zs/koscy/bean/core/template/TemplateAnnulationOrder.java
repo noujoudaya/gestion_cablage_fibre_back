@@ -1,42 +1,85 @@
 package ma.zs.koscy.bean.core.template;
-
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
 import ma.zs.koscy.zynerator.audit.AuditBusinessObject;
+import java.util.Objects;
+
 
 @Entity
-public class TemplateAnnulationOrder  extends AuditBusinessObject {
+@Table(name = "template_annulation_order")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SequenceGenerator(name="template_annulation_order_seq",sequenceName="template_annulation_order_seq",allocationSize=1, initialValue = 1)
+public class TemplateAnnulationOrder   extends AuditBusinessObject {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
-    private String code  ;
-    private String libelle  ;
+    private Long id;
 
-    public Long getId() {
-        return id;
+    @Column(length = 500)
+    private String code;
+    @Column(length = 500)
+    private String libelle;
+
+
+
+    public TemplateAnnulationOrder(){
+        super();
     }
 
-    public void setId(Long id) {
+    public TemplateAnnulationOrder(Long id){
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public TemplateAnnulationOrder(Long id,String libelle){
+        this.id = id;
+        this.libelle = libelle ;
+    }
+    public TemplateAnnulationOrder(String libelle){
+        this.libelle = libelle ;
     }
 
-    public void setCode(String code) {
+
+
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE,generator="template_annulation_order_seq")
+    public Long getId(){
+        return this.id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+    public String getCode(){
+        return this.code;
+    }
+    public void setCode(String code){
         this.code = code;
     }
-
-    public String getLibelle() {
-        return libelle;
+    public String getLibelle(){
+        return this.libelle;
     }
-
-    public void setLibelle(String libelle) {
+    public void setLibelle(String libelle){
         this.libelle = libelle;
     }
+
+    @Transient
+    public String getLabel() {
+        label = libelle;
+        return label;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TemplateAnnulationOrder templateAnnulationOrder = (TemplateAnnulationOrder) o;
+        return id != null && id.equals(templateAnnulationOrder.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
 }
+
