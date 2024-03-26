@@ -5,9 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import ma.zs.koscy.zynerator.audit.AuditBusinessObject;
 
 @Entity
-public class TemplateAnnulationOrder {
+public class TemplateAnnulationOrder  extends AuditBusinessObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

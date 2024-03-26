@@ -1,9 +1,10 @@
 package ma.zs.koscy.bean.core.adressage;
 
 import jakarta.persistence.*;
+import ma.zs.koscy.zynerator.audit.AuditBusinessObject;
 
 @Entity
-public class Ville {
+public class Ville extends AuditBusinessObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
