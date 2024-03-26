@@ -5,8 +5,6 @@ import java.util.Objects;
 import java.time.LocalDateTime;
 
 
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 import ma.zs.koscy.bean.core.commun.ReasonKo;
@@ -15,7 +13,7 @@ import ma.zs.koscy.bean.core.commun.ReasonKo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ma.zs.koscy.zynerator.audit.AuditBusinessObject;
 import jakarta.persistence.*;
-import java.util.Objects;
+
 
 
 
@@ -24,7 +22,7 @@ import java.util.Objects;
 @Table(name = "order_kosc")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SequenceGenerator(name="order_kosc_seq",sequenceName="order_kosc_seq",allocationSize=1, initialValue = 1)
-public class OrderKosc   extends AuditBusinessObject     {
+public class OrderKosc extends AuditBusinessObject {
 
     private Long id;
 
