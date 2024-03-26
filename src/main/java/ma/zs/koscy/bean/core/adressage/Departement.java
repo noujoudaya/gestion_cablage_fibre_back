@@ -1,5 +1,6 @@
 package ma.zs.koscy.bean.core.adressage;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import ma.zs.koscy.bean.core.template.TemplateAnnulationOrder;
@@ -18,10 +19,21 @@ public class Departement extends AuditBusinessObject {
     @Column(length = 500)
     private String code;
     @Column(length = 500)
+=======
+import jakarta.persistence.*;
+
+@Entity
+public class Departement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String code;
+>>>>>>> 8d4621a (beans:Depart,ville,tempAnnul)
     private String nom;
     @ManyToOne
     private Secteur secteur;
 
+<<<<<<< HEAD
  public Departement() {super();}
     public Departement(Long id) {
         this.id = id;
@@ -59,6 +71,28 @@ public class Departement extends AuditBusinessObject {
     public String getNom() {
         return nom;
     }
+=======
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+>>>>>>> 8d4621a (beans:Depart,ville,tempAnnul)
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -70,6 +104,7 @@ public class Departement extends AuditBusinessObject {
     public void setSecteur(Secteur secteur) {
         this.secteur = secteur;
     }
+<<<<<<< HEAD
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,3 +119,8 @@ public class Departement extends AuditBusinessObject {
     }
 }
 
+=======
+}
+
+
+>>>>>>> 8d4621a (beans:Depart,ville,tempAnnul)
