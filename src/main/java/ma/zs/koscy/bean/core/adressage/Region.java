@@ -27,16 +27,15 @@ public class Region extends AuditBusinessObject {
     public Region(Long id) {
         this.id = id;
     }
-
-    public Region(Long id, String code, String nom) {
-        this.id = id;
-        this.code = code;
-        this.nom = nom;
+    public Region(String code) {
+        this.code= code;
     }
 
-    public Region(String code, String nom) {
+
+
+    public Region(Long id,String code ) {
         this.code = code;
-        this.nom = nom;
+        this.id = id;
     }
 
     @Id
