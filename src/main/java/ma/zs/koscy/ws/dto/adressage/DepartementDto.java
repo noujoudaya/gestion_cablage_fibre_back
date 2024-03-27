@@ -6,11 +6,11 @@ import ma.zs.koscy.zynerator.audit.Log;
 import ma.zs.koscy.zynerator.dto.AuditBaseDto;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class VilleDto extends AuditBaseDto {
+public class DepartementDto extends AuditBaseDto {
     private Long id;
     private String code;
     private String nom;
-    private Region region;
+    private Secteur secteur;
 @Log
     public Long getId() {
         return id;
@@ -36,11 +36,11 @@ public class VilleDto extends AuditBaseDto {
         this.nom = nom;
     }
 @Log
-    public Region getRegion() {
-        return region;
+    public Secteur getSecteur() {
+        return secteur;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setSecteur(Secteur secteur) {
+        this.secteur = secteur;
     }
 }

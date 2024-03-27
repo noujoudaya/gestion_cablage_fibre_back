@@ -57,11 +57,4 @@ public class ReasonKoDto  extends AuditBaseDto {
         this.description = description;
     }
 
-
-
-
-
-
-
-
 }

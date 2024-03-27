@@ -9,13 +9,30 @@ import ma.zs.koscy.dao.specification.core.adressage.DepartementSpecification;
 import ma.zs.koscy.dao.specification.core.template.TemplateAnnulationOrderSpecification;
 import ma.zs.koscy.service.facade.admin.adressage.DepartementAdminService;
 import ma.zs.koscy.zynerator.service.AbstractServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DepartementAdminServiceImpl extends AbstractServiceImpl<Departement, DepartementCriteria, DepartementDao> implements DepartementAdminService {
 
+    public Departement findByCode(String code) {
+        return departementDao.findByCode(code);
+    }
 
-    @Override
+    public int deleteByCode(String code) {
+        return departementDao.deleteByCode(code);
+    }
+
+
+    public List<Departement> findAll() {
+        return departementDao.findAll();
+    }
+
+
+    private DepartementDao departementDao;
+
     public void configure() {
         super.configure(Departement.class, DepartementSpecification.class);
     }

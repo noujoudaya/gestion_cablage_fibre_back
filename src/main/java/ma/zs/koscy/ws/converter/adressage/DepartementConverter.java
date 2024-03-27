@@ -1,25 +1,22 @@
 package ma.zs.koscy.ws.converter.adressage;
 
 import ma.zs.koscy.bean.core.adressage.Departement;
-import ma.zs.koscy.bean.core.adressage.Ville;
 import ma.zs.koscy.bean.core.template.TemplateAnnulationOrder;
 import ma.zs.koscy.ws.dto.adressage.DepartementDto;
-import ma.zs.koscy.ws.dto.adressage.VilleDto;
 import ma.zs.koscy.ws.dto.template.TemplateAnnulationOrderDto;
 import ma.zs.koscy.zynerator.converter.AbstractConverter;
 import ma.zs.koscy.zynerator.util.StringUtil;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
 @Component
-public class VilleConverter extends AbstractConverter<Ville, VilleDto> {
-    public  VilleConverter() {
-        super(Ville.class, VilleDto.class);
+public class DepartementConverter extends AbstractConverter<Departement, DepartementDto> {
+    public  DepartementConverter() {
+        super(Departement.class, DepartementDto.class);
     }
-
-
-
     @Override
-    public Ville toItem(VilleDto dto) {
+    public Departement toItem(DepartementDto dto) {
         if (dto == null) {
             return null;
         } else {
@@ -30,14 +27,13 @@ public class VilleConverter extends AbstractConverter<Ville, VilleDto> {
                 item.setCode(dto.getCode());
             if(StringUtil.isNotEmpty(dto.getNom()))
                 item.setNom(dto.getNom());
-            if(StringUtil.isNotEmpty(dto.getRegion()))
-                item.setRegion(dto.getRegion());
+            if(StringUtil.isNotEmpty(dto.getSecteur()))
+                item.setSecteur(dto.getSecteur());
             return item;
         }
     }
 
-    @Override
-    public VilleDto toDto(Ville item) {
+    public TemplateAnnulationOrderDto toDto(TemplateAnnulationOrder item) {
         if (item == null) {
             return null;
         } else {
@@ -48,13 +44,11 @@ public class VilleConverter extends AbstractConverter<Ville, VilleDto> {
                 dto.setCode(item.getCode());
             if(StringUtil.isNotEmpty(item.getNom()))
                 dto.setNom(item.getNom());
-
-            if(StringUtil.isNotEmpty(item.getRegion()))
-                dto.setRegion(item.getRegion());
+            if(StringUtil.isNotEmpty(item.getSecteur()))
+                dto.setSecteur(item.getSecteur());
             return dto;
         }
     }
-
-    public void initObject(boolean value) {
-    }
+public void initObject(boolean value) {
+}
 }
