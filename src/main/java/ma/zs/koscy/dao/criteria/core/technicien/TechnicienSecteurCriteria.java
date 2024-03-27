@@ -5,12 +5,13 @@ import ma.zs.koscy.bean.core.technicien.Technicien;
 import ma.zs.koscy.dao.criteria.core.adressage.SecteurCriteria;
 import ma.zs.koscy.zynerator.criteria.BaseCriteria;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class TechnicienSecteurCriteria extends BaseCriteria {
-    private LocalDate dateDebut;
-    private LocalDate dateFin;
+    private LocalDateTime dateDebut;
+    private LocalDateTime dateFin;
     private Secteur secteur;
     private List<SecteurCriteria> secteurs;
     private Technicien technicien;
@@ -18,19 +19,19 @@ public class TechnicienSecteurCriteria extends BaseCriteria {
 
     public TechnicienSecteurCriteria(){}
 
-    public LocalDate getDateDebut() {
+    public LocalDateTime getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(LocalDate dateDebut) {
+    public void setDateDebut(LocalDateTime dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public LocalDate getDateFin() {
+    public LocalDateTime getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(LocalDate dateFin) {
+    public void setDateFin(LocalDateTime dateFin) {
         this.dateFin = dateFin;
     }
 

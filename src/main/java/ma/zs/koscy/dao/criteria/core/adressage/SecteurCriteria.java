@@ -53,7 +53,7 @@ public class SecteurCriteria extends BaseCriteria {
     }
 
     public List<DepartementCriteria> getDepartements() {
-        return departements;
+        return this.departements;
     }
 
     public void setDepartements(List<DepartementCriteria> departements) {

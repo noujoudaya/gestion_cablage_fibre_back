@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import ma.zs.koscy.bean.core.adressage.Secteur;
 import ma.zs.koscy.zynerator.audit.AuditBusinessObject;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -16,11 +16,11 @@ public class JourFerie extends AuditBusinessObject {
 
     private Long id;
     @Column(length = 500)
-    private double code;
+    private String code;
     @Column(length = 500)
-    private LocalDate dateDebut;
+    private LocalDateTime dateDebut;
     @Column(length = 500)
-    private LocalDate dateFin;
+    private LocalDateTime dateFin;
 
     @Id
     @Column(name="id")
@@ -33,27 +33,27 @@ public class JourFerie extends AuditBusinessObject {
         this.id = id;
     }
 
-    public double getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(double code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
-    public LocalDate getDateDebut() {
+    public LocalDateTime getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(LocalDate dateDebut) {
+    public void setDateDebut(LocalDateTime dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public LocalDate getDateFin() {
+    public LocalDateTime getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(LocalDate dateFin) {
+    public void setDateFin(LocalDateTime dateFin) {
         this.dateFin = dateFin;
     }
 
