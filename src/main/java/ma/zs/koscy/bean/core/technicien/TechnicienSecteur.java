@@ -26,6 +26,15 @@ public class TechnicienSecteur extends AuditBusinessObject {
     @ManyToOne
     private  Technicien technicien;
 
+    public TechnicienSecteur(){
+        super();
+    }
+
+    public TechnicienSecteur(Long id){
+        this.id = id;
+    }
+
+
 
     @Id
     @Column(name="id")

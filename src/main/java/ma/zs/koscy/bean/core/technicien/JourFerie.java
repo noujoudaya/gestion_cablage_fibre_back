@@ -22,6 +22,19 @@ public class JourFerie extends AuditBusinessObject {
     @Column(length = 500)
     private LocalDateTime dateFin;
 
+    public JourFerie(){
+        super();
+    }
+
+    public JourFerie(Long id){
+        this.id = id;
+    }
+
+    public JourFerie(Long id,String code){
+        this.id = id;
+        this.code = code ;
+    }
+
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "jourferie_seq")
