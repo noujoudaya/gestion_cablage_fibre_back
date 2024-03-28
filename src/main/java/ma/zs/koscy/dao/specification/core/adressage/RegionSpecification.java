@@ -14,7 +14,6 @@ public class RegionSpecification extends AbstractSpecification<RegionCriteria, R
 
     }
     public RegionSpecification(RegionCriteria criteria) {
-
         super(criteria);
     }
 

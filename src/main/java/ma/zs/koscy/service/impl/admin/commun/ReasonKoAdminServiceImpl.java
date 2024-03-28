@@ -28,8 +28,6 @@ public class ReasonKoAdminServiceImpl extends AbstractServiceImpl<ReasonKo, Reas
 
 
 
-
-
     public List<ReasonKo> findAllOptimized() {
         return dao.findAllOptimized();
     }

@@ -12,5 +12,5 @@ public interface RegionAdminService extends IService<Region, RegionCriteria> {
     Region findByCode(String code);
     int deleteByCode(String code);
     List<Region> findAll();
-    Region save(Region region);
+    //Region save(Region region);
 }

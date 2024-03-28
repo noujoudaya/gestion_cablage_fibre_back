@@ -34,17 +34,15 @@ public class Provider extends AuditBusinessObject {
         this.id = id;
     }
 
-    public Provider(Long id, String raisonSocial, double idComentreprise, double identifiantFiscal) {
+    public Provider(Long id, String raisonSocial) {
         this.id = id;
         this.raisonSocial = raisonSocial;
-        this.idComentreprise = idComentreprise;
-        this.identifiantFiscal = identifiantFiscal;
+
     }
 
-    public Provider(String raisonSocial, double idComentreprise, double identifiantFiscal) {
+    public Provider(String raisonSocial) {
         this.raisonSocial = raisonSocial;
-        this.idComentreprise = idComentreprise;
-        this.identifiantFiscal = identifiantFiscal;
+
     }
 
     @Id
