@@ -13,5 +13,5 @@ public interface JourFerieDao extends AbstractRepository<JourFerie,Long> {
     int deleteByCode(String code);
 
     @Query("SELECT NEW JourFerie(item.id,item.code) FROM JourFerie item")
-    List<Technicien> findAllOptimized();
+    List<JourFerie> findAllOptimized();
 }
